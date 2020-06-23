@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #434344;
+    background-color: #CFD0CF;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 42px;
+    margin: 40px 0;
+    line-height: 47px;
+}
+
+.main__wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.cards__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 25px;
+    perspective: 600px;
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    display: flex;
+    list-style: none;
+    height: 130px;
+    width: 130px;
+    border: 5px solid #fff;
+    border-radius: 9px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    background: linear-gradient(45deg, #22AB93 0%, #19668D 100%);
+    cursor: pointer;
+    font-size: 0px;
+
+    transition: transform .3s;
+}
+
+.open {
+    justify-content: center;
+    align-items: center;
+    font-size: 75px;
+    background: #fff;
+    transform: rotateY(180deg);
+    animation-duration: .3s;
+    transition: .3s;
+}
+
+.match {
+    background: #5AD66F;
+    transition: .3s;
+    border: none;
+}
+
+.unmatched {
+    background: #F44336;
+    transition: .3s;
+    border: none;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.timer {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.show__modal {
+    display: flex;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+    background-color: rgba(0,0,0,.5);
+}
+
+.show__modal>.modal__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.modal__wrapper {
+    width: max-content;
+    min-width: 350px;
+    background-color: #fff;
+    flex-direction: column;
+}
+
+.result {
+    font-size: 48px;
+    padding-top: 30px;
+    margin: 0;
+}
+
+.result__letters {
+	display: inline-block;
+	animation: lettersJump 1.5s infinite ease-in-out;
+	transform-origin: center bottom;
+}
+
+.button {
+    height: 40px;
+    margin: 40px 0 30px 0;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(34,171,147,1) 0%, rgba(25,102,141,1) 100%);
+    box-shadow: 1px 1px 1px rgba(0,0,0,.5);
+    cursor: pointer;
+}
+
+button:active {
+    box-shadow: inset 2px 1px 8px rgba(0,0,0,.5);
+} 
+
+.button__inner {
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    margin: 0 30px;
+}
+
+@keyframes lettersJump {
+	0% {	transform: translateY(0) scaleY(1)	}
+	25% {	transform: translateY(-5px) scaleY(1.5)	}
+	50% {	transform: translateY(0) scaleY(0.5)	}
+	100% {	transform: translateY(0) scaleY(1)	}
+}
